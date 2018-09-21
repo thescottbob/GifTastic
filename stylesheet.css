@@ -1,9 +1,16 @@
 body {
-    background-image: url("https://media.giphy.com/media/15BuYJbJlNvBC/200.gif");
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: 1400px 1000px;
+  background-image: url("https://media.giphy.com/media/15BuYJbJlNvBC/200.gif");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 1400px 1000px;
+}
 
-    
- }
- 
+#hero-text {
+  color: white;
+  font-size: 25px;
+}
+
+p {
+  color: white;
+  font-size: 25px;
+}
