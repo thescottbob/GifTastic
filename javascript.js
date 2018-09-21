@@ -19,6 +19,8 @@ $(document).ready(function() {
 
 // Function which runs if any button is pressed
   $("button").on("click", function() {
+    //Empty the gifs-appear-here div to reset it
+    $("#gifs-appear-here").empty();
     // Grab and store the data-hero property value from the button using attribute method (.attr)
     var hero = $(this).attr("data-hero");
 
@@ -51,7 +53,7 @@ $(document).ready(function() {
           var heroImage = $("<img>");
 
           // Set the source attribute of the heroImage to a property from the results
-          heroImage.attr("src", results[i].images.fixed_height_still.url);
+          heroImage.attr("src", results[i].images.fixed_height.url);
           heroImage.attr("class", "gif");
           heroImage.attr("data-state", "still");
 
