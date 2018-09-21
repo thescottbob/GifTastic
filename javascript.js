@@ -51,7 +51,7 @@ $(document).ready(function() {
           var heroImage = $("<img>");
 
           // Set the source attribute of the heroImage to a property from the results
-          heroImage.attr("src", results[i].images.fixed_height.url);
+          heroImage.attr("src", results[i].images.fixed_height_still.url);
           heroImage.attr("class", "gif");
           heroImage.attr("data-state", "still");
 
@@ -67,25 +67,24 @@ $(document).ready(function() {
 
     //When the user clicks on a gif, it should start moving if paused, or should stop moving if already animated
     $(".gif").on("click", function() {
-        // var state = $(this).attr("data-state");
+        var state = $(this).attr("data-state");
         if (state === "still") {
         // $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("src", results[i].images.fixed_height.url);
         $(this).attr("data-state", "animate");
-        console.log(state);
         }
-        if (state === "animate") {
+        else if (state === "animate") {
         // $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("src", results[i].images.fixed_height_still.url);
         $(this).attr("data-state", "still");
-        console.log(state);
         }
     });
 
-
     //When the submit button is pressed, capture the userInput and dynamically create a button, appending it to the heroArray
-        var inputElement = document.getElementById('addHero');
-        var userInput = '';
-        inputElement.on('change', function(e) {
-            userInput = e.target.value;
+        $(addHero).on('click', function() {
+            var inputElement = document.getElementById('addHero');
+            var userInput = '';
+            userInput = inputElement.value;
             
             $("#heroButtons").append(heroButton);
             heroButton.append(userInput);
