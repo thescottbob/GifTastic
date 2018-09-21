@@ -7,7 +7,6 @@ $(document).ready(function() {
     "The Green Lantern",
     "Iron Man"
   ];
-//use .push to add elements to the array
 
   //Loop through the array and dynamically create new hero buttons
   for (i = 0; i < heroArray.length; i++) {
@@ -56,7 +55,7 @@ $(document).ready(function() {
           heroImage.attr("class", "gif");
           heroImage.attr("data-state", "still");
 
-          // Use append method to add the newly create paragraph and image onto the end of the heroDiv
+          // Use append method to add the newly created paragraph and image onto the end of the heroDiv
           heroDiv.append(p);
           heroDiv.append(heroImage);
 
@@ -66,14 +65,32 @@ $(document).ready(function() {
       });
   });
 
+    //When the user clicks on a gif, it should start moving if paused, or should stop moving if already animated
     $(".gif").on("click", function() {
-        var state = $(this).attr("data-state");
+        // var state = $(this).attr("data-state");
         if (state === "still") {
-        $(this).attr("src", $(this).attr("data-animate"));
+        // $(this).attr("src", $(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
-        } else {
-        $(this).attr("src", $(this).attr("data-still"));
+        console.log(state);
+        }
+        if (state === "animate") {
+        // $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
+        console.log(state);
         }
     });
+
+
+    //When the submit button is pressed, capture the userInput and dynamically create a button, appending it to the heroArray
+        var inputElement = document.getElementById('addHero');
+        var userInput = '';
+        inputElement.on('change', function(e) {
+            userInput = e.target.value;
+            
+            $("#heroButtons").append(heroButton);
+            heroButton.append(userInput);
+            heroButton.attr("data-hero", heroArray[i]);
+            console.log(heroArray[i]);
+        });  
 });
+
